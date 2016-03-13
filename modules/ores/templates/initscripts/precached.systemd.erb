@@ -6,7 +6,10 @@ After=network.target
 User=www-data
 Group=www-data
 WorkingDirectory=<%= @working_dir %>
-ExecStart=<%= @venv_path %>/bin/ores stream.wikimedia.org --config ores.wmflabs.org.yaml --verbose
+ExecStart=<%= @venv_path %>/bin/ores precached stream.wikimedia.org https://ores.wmflabs.org --config <%= @working_dir %>/00-main.yaml --verbose
 
 [Install]
 WantedBy=multi-user.target
+
+
+
